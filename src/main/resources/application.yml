@@ -1,0 +1,22 @@
+server:
+#  servlet:
+#    context-path: /root
+  port: 8081
+#防止cookie冲突
+  servlet:
+    session:
+      cookie:
+        name: OAUTH2-CLIENT-SESSIONID01
+oauth2-server-url: http://localhost:8080
+
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: 1234
+      user-authorization-uri: ${oauth2-server-url}/oauth/authorize
+      access-token-uri: ${oauth2-server-url}/oauth/token
+    resource:
+      jwt:
+        key-uri: ${oauth2-server-url}/oauth/token_key
+
